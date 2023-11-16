@@ -26,4 +26,12 @@ public class BJTest {
         m.carteIniziali();
         assertThat(m).size().isEqualTo(1);
     }
+    @Test
+    void mazziereGiocaTest(){
+        Mazziere m=new Mazziere();
+        m.carteIniziali();
+        m.gioca();
+        assertThat(m.getPunti()).isGreaterThanOrEqualTo(17);
+
+    }
 }
