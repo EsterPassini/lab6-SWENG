@@ -2,8 +2,8 @@ package it.unimi.di.sweng.blackjack;
 
 public class TableStrategy implements Strategia{
 
-    Strategia next;
-    Sfidante giocatore;
+    private Strategia next;
+    private Sfidante giocatore;
 
     public TableStrategy(Strategia s, Sfidante sf){
         this.giocatore = sf;
@@ -11,7 +11,9 @@ public class TableStrategy implements Strategia{
     }
     @Override
     public boolean chiediCarta() {
-
-        return false;
+        if(giocatore.getPunti()<17){
+            return true;
+        }
+        return next.chiediCarta();
     }
 }
