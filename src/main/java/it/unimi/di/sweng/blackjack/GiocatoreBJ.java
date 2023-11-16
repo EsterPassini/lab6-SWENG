@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
-public interface GiocatoreBJ {
+public interface GiocatoreBJ{
   void carteIniziali();
 
   void gioca();
