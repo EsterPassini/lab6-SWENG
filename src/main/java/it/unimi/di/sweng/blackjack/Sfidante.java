@@ -4,9 +4,10 @@ import ca.mcgill.cs.stg.solitaire.cards.Card;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Sfidante {
+public class Sfidante  implements GiocatoreBJ{
   //TODO i vari metodi richiesti per aderire all'interfaccia GiocatoreBJ
 
   final private String name;
@@ -24,4 +25,23 @@ public class Sfidante {
     this.strategia = strategia;
   }
 
+  @Override
+  public void carteIniziali() {
+
+  }
+
+  @Override
+  public void gioca() {
+
+  }
+
+  @Override
+  public Iterator<Card> getCards() {
+    return null;
+  }
+
+  @Override
+  public @NotNull String getName() {
+    return null;
+  }
 }
