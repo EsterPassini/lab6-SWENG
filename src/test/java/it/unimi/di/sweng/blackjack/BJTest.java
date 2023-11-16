@@ -1,5 +1,8 @@
 package it.unimi.di.sweng.blackjack;
 
+import ca.mcgill.cs.stg.solitaire.cards.Card;
+import ca.mcgill.cs.stg.solitaire.cards.Rank;
+import ca.mcgill.cs.stg.solitaire.cards.Suit;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -53,5 +56,15 @@ public class BJTest {
         when(g.getPunti()).thenReturn(6);
         LookAtTableStrategy lk=new LookAtTableStrategy(null,g,m);
         assertThat(lk.chiediCarta()).isTrue();
+    }
+
+    @Test
+    void  sfidanteCarteInizialiTest(){
+        Mazziere m=mock(Mazziere.class);
+        when(m.daiCarta()).thenReturn(Card.get(Rank.TWO, Suit.CLUBS));
+        Sfidante s = new Sfidante("tino", m);
+        s.carteIniziali();
+        assertThat(s).size().isEqualTo(2);
+        assertThat(s.getName()).isEqualTo("tino");
     }
 }
