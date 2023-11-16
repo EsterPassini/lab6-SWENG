@@ -40,7 +40,7 @@ public class BJTest {
     @Test
     void strategyTableTest(){
         Sfidante g = mock(Sfidante.class);
-        when(g.getPunti()).thenReturn(15);
+        when(g.getPunti()).thenReturn(16);
 
         TableStrategy ts = new TableStrategy(null, g);
         assertThat(ts.chiediCarta()).isTrue();
