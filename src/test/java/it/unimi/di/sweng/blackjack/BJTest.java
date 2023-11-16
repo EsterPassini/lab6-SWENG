@@ -45,4 +45,13 @@ public class BJTest {
         TableStrategy ts = new TableStrategy(null, g);
         assertThat(ts.chiediCarta()).isTrue();
     }
+    @Test
+    void  lookAtTableStrategyTest(){
+        Sfidante g= mock(Sfidante.class);
+        Mazziere m=mock(Mazziere.class);
+        when(m.getPunti()).thenReturn(10);
+        when(g.getPunti()).thenReturn(6);
+        LookAtTableStrategy lk=new LookAtTableStrategy(null,g,m);
+        assertThat(lk.chiediCarta()).isTrue();
+    }
 }
