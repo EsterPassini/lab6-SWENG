@@ -6,6 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BJTest {
 
@@ -33,6 +35,14 @@ public class BJTest {
         m.carteIniziali();
         m.gioca();
         assertThat(m.getPunti()).isGreaterThanOrEqualTo(17);
+    }
 
+    @Test
+    void strategyTableTest(){
+        Sfidante g = mock(Sfidante.class);
+        when(g.getPunti()).thenReturn(15);
+
+        TableStrategy ts = new TableStrategy(null, g);
+        assertThat(ts.chiediCarta()).isTrue();
     }
 }
