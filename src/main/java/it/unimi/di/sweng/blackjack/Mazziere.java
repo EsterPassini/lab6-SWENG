@@ -42,4 +42,8 @@ public class Mazziere implements GiocatoreBJ,Iterable<Card> {
     public Iterator<Card> iterator() {
         return mano.iterator();
     }
+
+    public Card daiCarta() {
+        return mazzo.draw();
+    }
 }
