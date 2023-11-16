@@ -12,6 +12,9 @@ public class StrategyControlParity implements Strategia{
 
     @Override
     public boolean chiediCarta() {
-        return false;
+        if (sf.numCards()%2==1){
+            return true;
+        }
+        return next.chiediCarta();
     }
 }
