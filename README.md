@@ -2,8 +2,8 @@
 
 ## LABORATORIO 6
 
-* TEAMMATE 1: <Cognome> <Nome> <matricola>
-* TEAMMATE 2: <Cognome> <Nome> <matricola>
+* TEAMMATE 1: Leone Martino Francesco 03297A
+* TEAMMATE 2: Passini Ester Luce 02757A
 
 Ogni coppia di studenti procede a effettuare il **fork** di questo repository.
 L'utente che ha effettuato il fork modifica questo README inserendo le opportune **informazioni sui
