@@ -54,7 +54,13 @@ public class BJTest {
         StrategyLookAtTable lk=new StrategyLookAtTable(null,g,m);
         assertThat(lk.chiediCarta()).isTrue();
     }
-
+    @Test
+    void controlParityStrategyTest(){
+        Sfidante sf=mock(Sfidante.class);
+        when(sf.numCards()).thenReturn(3);
+        StrategyControlParity pt=new StrategyControlParity(null,sf);
+        assertThat(pt.chiediCarta()).isTrue();
+    }
     @Test
     void  sfidanteCarteInizialiTest(){
         Mazziere m=mock(Mazziere.class);
@@ -64,4 +70,5 @@ public class BJTest {
         assertThat(s).size().isEqualTo(2);
         assertThat(s.getName()).isEqualTo("tino");
     }
+
 }
