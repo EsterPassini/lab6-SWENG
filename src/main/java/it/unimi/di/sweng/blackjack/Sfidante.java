@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Sfidante  implements GiocatoreBJ{
+public class Sfidante  implements GiocatoreBJ, Iterable<Card>{
   //TODO i vari metodi richiesti per aderire all'interfaccia GiocatoreBJ
 
   final private String name;
@@ -42,6 +42,12 @@ public class Sfidante  implements GiocatoreBJ{
 
   @Override
   public @NotNull String getName() {
+    return null;
+  }
+
+  @NotNull
+  @Override
+  public Iterator<Card> iterator() {
     return null;
   }
 }
