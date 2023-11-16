@@ -3,7 +3,6 @@ package it.unimi.di.sweng.blackjack;
 import ca.mcgill.cs.stg.solitaire.cards.Card;
 import ca.mcgill.cs.stg.solitaire.cards.Rank;
 import ca.mcgill.cs.stg.solitaire.cards.Suit;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -45,7 +44,7 @@ public class BJTest {
         Sfidante g = mock(Sfidante.class);
         when(g.getPunti()).thenReturn(16);
 
-        TableStrategy ts = new TableStrategy(null, g);
+        StrategyTable ts = new StrategyTable(null, g);
         assertThat(ts.chiediCarta()).isTrue();
     }
     @Test
@@ -54,7 +53,7 @@ public class BJTest {
         Mazziere m=mock(Mazziere.class);
         when(m.getPunti()).thenReturn(10);
         when(g.getPunti()).thenReturn(6);
-        LookAtTableStrategy lk=new LookAtTableStrategy(null,g,m);
+        StrategyLookAtTable lk=new StrategyLookAtTable(null,g,m);
         assertThat(lk.chiediCarta()).isTrue();
     }
 

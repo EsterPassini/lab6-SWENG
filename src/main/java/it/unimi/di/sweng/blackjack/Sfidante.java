@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Sfidante  implements GiocatoreBJ, Iterable<Card>{
-  //TODO i vari metodi richiesti per aderire all'interfaccia GiocatoreBJ
 
   final private String name;
   final private Mazziere banco;
