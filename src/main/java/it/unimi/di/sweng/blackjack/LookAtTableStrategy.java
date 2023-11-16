@@ -14,6 +14,9 @@ public class LookAtTableStrategy implements Strategia{
 
     @Override
     public boolean chiediCarta() {
-        return false;
+        if(g.getPunti()< mz.getPunti()){
+            return true;
+        }
+        return next.chiediCarta();
     }
 }
