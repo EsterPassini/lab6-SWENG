@@ -22,7 +22,9 @@ public class Mazziere implements GiocatoreBJ,Iterable<Card> {
 
     @Override
     public void gioca() {
-
+        while (getPunti()<17){
+            mano.add(mazzo.draw());
+        }
     }
 
     @Override

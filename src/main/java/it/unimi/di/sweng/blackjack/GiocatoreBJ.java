@@ -15,8 +15,14 @@ public interface GiocatoreBJ{
   @NotNull String getName();
 
   default int getPunti() {
-    // TODO quanto valgono le carte? Occhio agli assi!
-    return 0;
+    int n=0;
+
+    for (Iterator<Card> it = getCards(); it.hasNext(); ) {
+      Card g = it.next();
+      n+=BlackJack.cardValue(g);
+    }
+
+    return n;
   }
 
   default boolean isSballato() {
