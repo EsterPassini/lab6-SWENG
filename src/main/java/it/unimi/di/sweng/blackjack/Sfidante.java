@@ -53,4 +53,8 @@ public class Sfidante  implements GiocatoreBJ, Iterable<Card>{
   public Iterator<Card> iterator() {
     return mano.iterator();
   }
+
+  public int numCards(){
+    return mano.size();
+  }
 }
