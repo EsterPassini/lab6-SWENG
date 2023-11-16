@@ -10,13 +10,15 @@ import java.util.List;
 public class Mazziere implements GiocatoreBJ,Iterable<Card> {
 
     private DeckInterface mazzo;
-    private List<Card> mano = new ArrayList<>();
+    private List<Card> mano;
 
     public Mazziere(){
         this.mazzo = new MultiMazzo(6);
+        carteIniziali();
     }
     @Override
     public void carteIniziali() {
+        mano=new ArrayList<>();
         mano.add(mazzo.draw());
     }
 
