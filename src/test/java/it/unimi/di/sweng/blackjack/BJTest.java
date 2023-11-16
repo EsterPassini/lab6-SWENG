@@ -1,12 +1,13 @@
 package it.unimi.di.sweng.blackjack;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MultiMazzoTest {
+public class BJTest {
 
     @ParameterizedTest
     @ValueSource(ints={4,3,2,1})
@@ -18,5 +19,20 @@ public class MultiMazzoTest {
                 i++;
         }
         assertThat(i).isEqualTo(n*52);
+    }
+
+    @Test
+    void mazziereCarteInizialiTest (){
+        Mazziere m = new Mazziere();
+        m.carteIniziali();
+        assertThat(m).size().isEqualTo(1);
+    }
+    @Test
+    void mazziereGiocaTest(){
+        Mazziere m=new Mazziere();
+        m.carteIniziali();
+        m.gioca();
+        assertThat(m.getPunti()).isGreaterThanOrEqualTo(17);
+
     }
 }

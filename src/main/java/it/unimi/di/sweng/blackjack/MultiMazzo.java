@@ -21,9 +21,13 @@ public class MultiMazzo implements DeckInterface  {
     if (this.isEmpty()){
       return null;
     }
-    int randomNum = ThreadLocalRandom.current().nextInt(0, deckList.size());
+    int randomNum=0;
+    if(deckList.size()>1) {
+      randomNum = ThreadLocalRandom.current().nextInt(0, deckList.size() - 1);
+
+    }
     while (deckList.get(randomNum).isEmpty()){
-      randomNum++;
+        randomNum++;
         if(randomNum>deckList.size()){
           randomNum=0;
         }
