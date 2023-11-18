@@ -3,14 +3,23 @@ package it.unimi.di.sweng.blackjack;
 import ca.mcgill.cs.stg.solitaire.cards.Card;
 import ca.mcgill.cs.stg.solitaire.cards.Rank;
 import ca.mcgill.cs.stg.solitaire.cards.Suit;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+@ExtendWith(MockitoExtension.class)
 public class BJTest {
 
     @ParameterizedTest
@@ -70,5 +79,15 @@ public class BJTest {
         assertThat(s).size().isEqualTo(2);
         assertThat(s.getName()).isEqualTo("tino");
     }
+    @Mock
+    List<Card> mano;
+    @InjectMocks
+    Mazziere SUT;
 
+    @Test
+    void getPuntiTest(){
+        MockUtils.whenIterated(mano,Card.get(Rank.ACE,Suit.CLUBS),Card.get(Rank.QUEEN,Suit.DIAMONDS));
+        SUT.gioca();
+        assertThat(SUT.getPunti()).isEqualTo(21);
+    }
 }
