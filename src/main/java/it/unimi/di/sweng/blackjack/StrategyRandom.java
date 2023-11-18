@@ -2,7 +2,6 @@ package it.unimi.di.sweng.blackjack;
 
 import org.jetbrains.annotations.NotNull;
 
-// TODO: ha senso concatenare una dopo l'altra due strategie Random?
 public class StrategyRandom implements Strategia {
   final private Strategia next;
 
