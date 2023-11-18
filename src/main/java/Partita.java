@@ -16,9 +16,9 @@ public class Partita {
         sfidanti.add(Ester);
         sfidanti.add(Irne);
 
-        Martino.setStrategia(new StrategyControlParity(new StrategyRandom(Strategia.STAYALWAYS),Martino));
-        Ester.setStrategia(new StrategyLookAtTable(new StrategyTable(Strategia.STAYALWAYS,Ester),Ester,banco));
-        Irne.setStrategia(new StrategyTable(Strategia.STAYALWAYS,Irne));
+        Martino.setStrategia(new StrategyControlParity(new StrategyRandom(Strategia.NULL),Martino));
+        Ester.setStrategia(new StrategyLookAtTable(new StrategyTable(Strategia.NULL,Ester),Ester,banco));
+        Irne.setStrategia(new StrategyTable(Strategia.NULL,Irne));
         Martino.gioca();
         Ester.gioca();
         Irne.gioca();

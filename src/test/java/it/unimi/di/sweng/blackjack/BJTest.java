@@ -98,7 +98,7 @@ public class BJTest {
     Sfidante sfidanteSUT;
     @Test
     void giocaGiocatoreTest(){
-        Strategia s = new StrategyControlParity(new StrategyTable(Strategia.STAYALWAYS,sfidanteSUT), sfidanteSUT);
+        Strategia s = new StrategyControlParity(new StrategyTable(Strategia.NULL,sfidanteSUT), sfidanteSUT);
 
         sfidanteSUT.setStrategia(s);
         when(mazziere.daiCarta()).thenReturn(Card.get(Rank.TWO, Suit.CLUBS), Card.get(Rank.QUEEN, Suit.CLUBS), Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.ACE, Suit.CLUBS));
@@ -110,7 +110,7 @@ public class BJTest {
 
         ///////////////////////////////////////////////////////////////////////////
 
-        s = new StrategyControlParity(new StrategyTable(Strategia.STAYALWAYS,sfidanteSUT), sfidanteSUT);
+        s = new StrategyControlParity(new StrategyTable(Strategia.NULL,sfidanteSUT), sfidanteSUT);
 
         sfidanteSUT.setStrategia(s);
         when(mazziere.daiCarta()).thenReturn(Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.QUEEN, Suit.CLUBS), Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.ACE, Suit.CLUBS));
@@ -124,7 +124,7 @@ public class BJTest {
         when(mazziere.getPunti()).thenReturn(11);
         when(mazziere.daiCarta()).thenReturn(Card.get(Rank.TWO, Suit.CLUBS), Card.get(Rank.TWO, Suit.HEARTS), Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.ACE, Suit.CLUBS));
 
-        s = new StrategyLookAtTable(new StrategyControlParity(Strategia.STAYALWAYS,sfidanteSUT), sfidanteSUT, mazziere);
+        s = new StrategyLookAtTable(new StrategyControlParity(Strategia.NULL,sfidanteSUT), sfidanteSUT, mazziere);
 
         sfidanteSUT.setStrategia(s);
         sfidanteSUT.carteIniziali();
