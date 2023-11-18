@@ -1,6 +1,8 @@
 package it.unimi.di.sweng.blackjack;
 
 import ca.mcgill.cs.stg.solitaire.cards.Card;
+import ca.mcgill.cs.stg.solitaire.cards.Rank;
+import ca.mcgill.cs.stg.solitaire.cards.Suit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class Mazziere implements GiocatoreBJ,Iterable<Card> {
 
-    private DeckInterface mazzo;
+    private MultiMazzo mazzo;
     private List<Card> mano;
 
     public Mazziere(){
