@@ -90,4 +90,48 @@ public class BJTest {
         SUT.gioca();
         assertThat(SUT.getPunti()).isEqualTo(21);
     }
+
+
+    @Mock
+    Mazziere mazziere;
+    @InjectMocks
+    Sfidante sfidanteSUT;
+    @Test
+    void giocaGiocatoreTest(){
+        Strategia s = new StrategyControlParity(new StrategyTable(Strategia.STAYALWAYS,sfidanteSUT), sfidanteSUT);
+
+        sfidanteSUT.setStrategia(s);
+        when(mazziere.daiCarta()).thenReturn(Card.get(Rank.TWO, Suit.CLUBS), Card.get(Rank.QUEEN, Suit.CLUBS), Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.ACE, Suit.CLUBS));
+        sfidanteSUT.carteIniziali();
+
+        assertThat(sfidanteSUT.getPunti()).isEqualTo(12);
+        sfidanteSUT.gioca();
+        assertThat(sfidanteSUT.getPunti()).isEqualTo(21);
+
+        ///////////////////////////////////////////////////////////////////////////
+
+        s = new StrategyControlParity(new StrategyTable(Strategia.STAYALWAYS,sfidanteSUT), sfidanteSUT);
+
+        sfidanteSUT.setStrategia(s);
+        when(mazziere.daiCarta()).thenReturn(Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.QUEEN, Suit.CLUBS), Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.ACE, Suit.CLUBS));
+        sfidanteSUT.carteIniziali();
+
+        assertThat(sfidanteSUT.getPunti()).isEqualTo(18);
+        sfidanteSUT.gioca();
+        assertThat(sfidanteSUT.getPunti()).isEqualTo(18);
+
+        ///////////////////////////////////////////////////////////////////////////
+        when(mazziere.getPunti()).thenReturn(11);
+        when(mazziere.daiCarta()).thenReturn(Card.get(Rank.TWO, Suit.CLUBS), Card.get(Rank.TWO, Suit.HEARTS), Card.get(Rank.EIGHT, Suit.CLUBS), Card.get(Rank.ACE, Suit.CLUBS));
+
+        s = new StrategyLookAtTable(new StrategyControlParity(Strategia.STAYALWAYS,sfidanteSUT), sfidanteSUT, mazziere);
+
+        sfidanteSUT.setStrategia(s);
+        sfidanteSUT.carteIniziali();
+
+        assertThat(sfidanteSUT.getPunti()).isEqualTo(4);
+        sfidanteSUT.gioca();
+        assertThat(sfidanteSUT.getPunti()).isEqualTo(13);
+
+    }
 }

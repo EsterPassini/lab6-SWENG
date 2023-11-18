@@ -35,6 +35,9 @@ public class Sfidante  implements GiocatoreBJ, Iterable<Card>{
 
   @Override
   public void gioca() {
+    while (strategia.chiediCarta() && !(isSballato()) ){
+      mano.add(banco.daiCarta());
+    }
 
   }
 
