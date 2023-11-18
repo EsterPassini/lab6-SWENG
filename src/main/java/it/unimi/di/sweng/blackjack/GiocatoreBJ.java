@@ -1,11 +1,12 @@
 package it.unimi.di.sweng.blackjack;
 
 import ca.mcgill.cs.stg.solitaire.cards.Card;
+import ca.mcgill.cs.stg.solitaire.cards.Rank;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
-public interface GiocatoreBJ {
+public interface GiocatoreBJ{
   void carteIniziali();
 
   void gioca();
@@ -15,8 +16,24 @@ public interface GiocatoreBJ {
   @NotNull String getName();
 
   default int getPunti() {
-    // TODO quanto valgono le carte? Occhio agli assi!
-    return 0;
+    int n=0;
+    int aCounter=0;
+    for (Iterator<Card> it = getCards(); it.hasNext(); ) {
+      Card g = it.next();
+      n+=BlackJack.cardValue(g);
+      if(g.getRank()== Rank.ACE){
+        aCounter++;
+      }
+    }
+    for (int i = aCounter; i>0; i--) {
+        if (n+10<=21){
+          n+=10;
+        }else {
+          break;
+        }
+    }
+
+    return n;
   }
 
   default boolean isSballato() {
